@@ -7,7 +7,6 @@ def Reformat_Image(lst):
 
     for i in range(0,len(lst)):
         image = Image.open(urllib.request.urlopen(lst[i]["url"]))
-        image.save("ocrImg/"+lst[i]["imgID"])
         image_size = image.size
         width = image_size[0]
         height = image_size[1]
