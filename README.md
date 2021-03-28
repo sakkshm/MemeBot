@@ -1,5 +1,5 @@
 # MemeBot 🤖
- A Python script that collects memes from Reddit and compiles them into a video. This bot uses an unofficial Reddit API (https://github.com/R3l3ntl3ss/Meme_Api/) and get a random meme from Reddit and use moviepy (https://github.com/Zulko/moviepy) to make the video. Then these videos are automatically uploaded to Youtube. 
+ A Python script that collects memes from Reddit and compiles them into a video. This bot uses an unofficial Reddit API (https://github.com/R3l3ntl3ss/Meme_Api/) and get a random meme from Reddit and use moviepy (https://github.com/Zulko/moviepy) to make the video. Then these videos are automatically uploaded to Youtube. The bot also sends status update and link of the uploaded video to a telegram chat.
  
  # Example
 An example of the output is given in the output.mp4 file, and can also be found on Youtube. (https://www.youtube.com/watch?v=K3wpiGGY5og)
