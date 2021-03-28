@@ -5,6 +5,8 @@ import editImage
 import videoMaker
 import os
 import glob
+import notifBot
+import YTupload
 
 
 # Getting memes from API and formatting it into a list
@@ -12,7 +14,11 @@ import glob
 url = "https://meme-api.herokuapp.com/gimme/"
 
 count = 10
-subreddits = ["memes","dankmemes","cursedcomments","me_irl","HistoryMemes","BlackPeopleTwitter","ihadastroke","technicallythetruth"]
+# og_subreddits = ["memes","dankmemes","cursedcomments","me_irl","HistoryMemes","BlackPeopleTwitter","ihadastroke","technicallythetruth","trippinthroughtime","starterpacks","2meirl4meirl","deepfriedmeme","Meanjokes","suicidebywords","madlads"] Not accessible until protest is over
+
+subreddits = ["memes","dankmemes","starterpacks","2meirl4meirl","suicidebywords","madlads"]
+
+notifBot.send("Task initiated!")
 
 def make(j):
   try:
@@ -20,6 +26,7 @@ def make(j):
     memeList = []
     rand = random.randrange(0,len(subreddits))
     resp = requests.get(url+subreddits[rand]+"/"+str(count)).json()
+    print("Subreddit: ",subreddits[rand])
     memeList = formatResponse.makeMemeList(resp)
   except:
     resp.status_code == 200
@@ -50,7 +57,6 @@ def make(j):
   finally:
     print("Video is done!")
 
-
 for j in range(0,12):
   print("\n Video #",j)
   make(j)
@@ -60,3 +66,11 @@ for j in range(0,12):
 print("Combining all the clips")
 videoMaker.combineVideos()
 print("Video Completed!")
+notifBot.send("Video Completed, Uploading to Youtube!")
+
+upvid = YTupload.upload()
+
+print("Video uploaded")
+print(upvid[0] , upvid[1])
+notifBot.sendImg(upvid[2])
+notifBot.send("Video Uploaded, URL: https://www.youtube.com/watch?v="+upvid[0]+" and vid info:"+upvid[1])

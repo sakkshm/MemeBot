@@ -13,6 +13,8 @@ def makeMemeList(response):
             
             tempDict["url"] = memes[i]["url"] 
             tempDict["sub"] = memes[i]["subreddit"] 
+            tempDict["title"] = memes[i]["title"]
+            tempDict["author"] = memes[i]["author"]  
             tempDict["imgID"] = memes[i]["url"].split("/")[3]
 
             respList.append(tempDict)
