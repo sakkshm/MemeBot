@@ -1,8 +1,7 @@
-PIL
-urllib
-requests
-glob
-os
-simple_youtube_api
-telegram
-moviepy
+PIL==8.1.2
+urllib==1.26.4
+requests== 2.25.1
+simple_youtube_api==0.2.8
+telegram==0.0.1
+moviepy==1.0.3
+ffmpeg==1.4
