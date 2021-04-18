@@ -15,7 +15,7 @@ def upload():
         num = int(f.read())
 
     with open(myfile, "w") as f:
-        f.write(str(int(num)+1))
+        f.write(str(num)
 
     # setting up the video that is going to be uploaded
     video = LocalVideo(file_path="final.mp4")
