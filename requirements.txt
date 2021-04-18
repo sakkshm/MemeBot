@@ -1,0 +1,8 @@
+PIL
+urllib
+requests
+glob
+os
+simple_youtube_api
+telegram
+moviepy
