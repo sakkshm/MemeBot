@@ -16,7 +16,7 @@ url = "https://meme-api.herokuapp.com/gimme/"
 count = 10
 # og_subreddits = ["memes","dankmemes","cursedcomments","me_irl","HistoryMemes","BlackPeopleTwitter","ihadastroke","technicallythetruth","trippinthroughtime","starterpacks","2meirl4meirl","deepfriedmeme","Meanjokes","suicidebywords","madlads"] Not accessible until protest is over
 
-subreddits = ["memes","dankmemes","starterpacks","2meirl4meirl","suicidebywords","madlads"]
+subreddits =  ["memes","dankmemes","cursedcomments","me_irl","HistoryMemes","BlackPeopleTwitter","ihadastroke","technicallythetruth","trippinthroughtime","starterpacks","2meirl4meirl","suicidebywords","madlads"]
 
 notifBot.send("Task initiated!")
 
@@ -59,18 +59,27 @@ def make(j):
 
 for j in range(0,12):
   print("\n Video #",j)
-  make(j)
+  try:
+    make(j)
+  except:
+    continue
 
 
 #Export Video
-print("Combining all the clips")
-videoMaker.combineVideos()
-print("Video Completed!")
-notifBot.send("Video Completed, Uploading to Youtube!")
+try:
+  print("Combining all the clips")
+  videoMaker.combineVideos()
+  print("Video Completed!")
+  notifBot.send("Video Completed, Uploading to Youtube!")
 
-upvid = YTupload.upload()
+  upvid = YTupload.upload()
 
-print("Video uploaded")
-print(upvid[0] , upvid[1])
-notifBot.sendImg(upvid[2])
-notifBot.send("Video Uploaded, URL: https://www.youtube.com/watch?v="+upvid[0]+" and vid info:"+upvid[1])
+  print("Video uploaded")
+  print(upvid[0] , upvid[1])
+  notifBot.sendImg(upvid[2])
+  notifBot.send("Video Uploaded, URL: https://www.youtube.com/watch?v="+upvid[0]+" and vid info:"+upvid[1])
+  notifBot.send("Video Uploaded, URL: https://www.youtube.com/watch?v="+upvid[0])
+  notifBot.send("Done!")
+
+except:
+  notifBot.send("Some error occured while exporting and uploading the video!")

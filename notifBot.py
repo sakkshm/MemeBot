@@ -1,7 +1,7 @@
 import telegram
 
-my_token = 'xxxxxxxxxxxxxx'
-my_chat_id = 'yyyyyyyyyyyyy'
+my_token = '#####################'
+my_chat_id = '*****'
 
 def send(msg, chat_id = my_chat_id, token=my_token):
 	bot = telegram.Bot(token=token)

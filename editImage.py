@@ -6,10 +6,13 @@ import urllib.request
 def Reformat_Image(lst):
 
     for i in range(0,len(lst)):
-        image = Image.open(urllib.request.urlopen(lst[i]["url"]))
-        image_size = image.size
-        width = image_size[0]
-        height = image_size[1]
+        try:
+            image = Image.open(urllib.request.urlopen(lst[i]["url"]))
+            image_size = image.size
+            width = image_size[0]
+            height = image_size[1]
+        except:
+            break
 
         if(width != height):
             bigside = width if width > height else height

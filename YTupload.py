@@ -13,15 +13,16 @@ def upload():
     myfile = "src/vidnum.txt"
     with open(myfile, "r") as f:
         num = int(f.read())
-
+    print(num)
+    print(type(num))
     with open(myfile, "w") as f:
-        f.write(str(num)
+        f.write(str(num+1))
 
     # setting up the video that is going to be uploaded
     video = LocalVideo(file_path="final.mp4")
 
     # setting snippet
-    video.set_title("Top memes I found on Reddit #" + str(num + 1))
+    video.set_title("Top memes I found on Reddit #" + str(num))
     video.set_description('''Top memes I found on Reddit #
 
         Like, Share and Subscribe for daily videos
